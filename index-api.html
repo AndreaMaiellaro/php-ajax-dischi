@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dischi</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+
+    <div id="root">
+
+        <header>
+            <div class="logo">
+                <img src="img/download.png" alt="">
+            </div>
+        </header>
+
+        <main>
+
+            <div class="filtro-album">
+                <label>Filtro Album per genere</label>
+                <select v-model="genreSelected" @change="getDischi">
+                    <option value="">Tutti</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Metal">Metal</option>
+                </select>
+            </div>
+            
+            <div class="wrapper">
+                <!-- album -->
+                <div v-for="cd in cds" class="album">
+                    <img :src="cd.poster" alt="cd.title">
+                    <div class="title">{{ cd.title }}</div>
+                    <div class="autore">{{ cd.author }}</div>
+                    <div class="anno">{{ cd.year }}</div>
+                </div>
+                <!--fine album -->
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
